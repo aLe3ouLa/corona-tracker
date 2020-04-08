@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Home from "./pages/homepage";
 import axios from "axios";
+import Topbar from "./components/layout/topbar";
 
 const App = () => {
   const [recovered, setRecovered] = useState({});
@@ -30,12 +31,15 @@ const App = () => {
   }, []);
 
   return (
-    <Home
-      recovered={recovered}
-      confirmed={confirmed}
-      deaths={deaths}
-      countries={countries}
-    />
+    <>
+      <Topbar />
+      <Home
+        recovered={recovered}
+        confirmed={confirmed}
+        deaths={deaths}
+        countries={countries}
+      />
+    </>
   );
 };
 
