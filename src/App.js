@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import Home from "./pages/homepage/home";
+import Home from "./pages/homepage";
 import axios from "axios";
 
 const App = () => {
   const [recovered, setRecovered] = useState({});
   const [confirmed, setConfirmed] = useState({});
   const [deaths, setDeaths] = useState({});
+  const [countries, setCountries] = useState([]);
 
   useEffect(() => {
     axios
@@ -17,7 +18,25 @@ const App = () => {
         setRecovered(data.recovered);
       });
   }, []);
-  return <Home recovered={recovered} confirmed={confirmed} deaths={deaths} />;
+
+  useEffect(() => {
+    axios
+      .get("https://covid19.mathdro.id/api/countries")
+      .then((response) => response.data)
+      .then((data) => {
+        console.log(data);
+        setCountries(data.countries);
+      });
+  }, []);
+
+  return (
+    <Home
+      recovered={recovered}
+      confirmed={confirmed}
+      deaths={deaths}
+      countries={countries}
+    />
+  );
 };
 
 export default App;
