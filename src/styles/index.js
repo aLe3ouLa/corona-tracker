@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Reset, Typography } from "./variables/defaults";
+import { Reset, Typography } from "./defaults";
 import { color } from "./variables/colors";
 import { spacing } from "./variables/spacings";
 import { breakpoint } from "./variables/breakpoints";

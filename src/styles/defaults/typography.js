@@ -1,6 +1,4 @@
 import { createGlobalStyle } from "styled-components";
-
-import { font } from "../variables/fonts";
 import { color } from "../variables/colors";
 import { breakpoint } from "../variables/breakpoints";
 
@@ -35,18 +33,8 @@ export default createGlobalStyle`
   }
   h1, h2, h3, h4, h5, h6 {
     color: ${color.text};
-    font-family: ${font.primary};
   }
   h1 {
-    font-size: 3.6rem;
-    @media (min-width: ${breakpoint.tablet}) {
-      font-size: 4.2rem;
-    }
-    @media (min-width: ${breakpoint.desktop}) {
-      font-size: 4.6rem;
-    }
-  }
-  h2 {
     font-size: 3rem;
     @media (min-width: ${breakpoint.tablet}) {
       font-size: 3.4rem;
@@ -55,8 +43,17 @@ export default createGlobalStyle`
       font-size: 3.8rem;
     }
   }
+  h2 {
+    font-size: 2.2rem;
+    @media (min-width: ${breakpoint.tablet}) {
+      font-size: 3.4rem;
+    }
+    @media (min-width: ${breakpoint.desktop}) {
+      font-size: 3.8rem;
+    }
+  }
   h3 {
-    font-size: 2.4rem;
+    font-size: 2rem;
     @media (min-width: ${breakpoint.tablet}) {
       font-size: 2.6rem;
     }
@@ -65,7 +62,7 @@ export default createGlobalStyle`
     }
   }
   h4 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 900;
     @media (min-width: ${breakpoint.tablet}) {
       font-size: 2.2rem;
@@ -75,7 +72,7 @@ export default createGlobalStyle`
     }
   }
   h5 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     @media (min-width: ${breakpoint.tablet}) {
       font-size: 2rem;
     }
@@ -88,7 +85,6 @@ export default createGlobalStyle`
     }
   }
   p, textarea, a, span {
-    font-family: ${font.primary};
     font-size: 1.4rem;
     @media (min-width: ${breakpoint.desktop}) {
       font-size: 1.6rem;
@@ -101,12 +97,9 @@ export default createGlobalStyle`
   a {
     text-decoration: none;
   }
-  button {
-    font-family: ${font.primary};
-  }
+
   blockquote {
     margin: 0;
-    font-family: ${font.primary};
     font-size: 1.6rem;
     @media (min-width: ${breakpoint.tablet}) {
       font-size: 1.8rem;
@@ -116,7 +109,6 @@ export default createGlobalStyle`
     }
   }
   cite {
-    font-family: ${font.primary};
     font-size: 1rem;
     @media (min-width: ${breakpoint.tablet}) {
       font-size: 1.2rem;
