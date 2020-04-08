@@ -7,7 +7,6 @@ const App = () => {
   const [recovered, setRecovered] = useState({});
   const [confirmed, setConfirmed] = useState({});
   const [deaths, setDeaths] = useState({});
-  const [countries, setCountries] = useState([]);
 
   useEffect(() => {
     axios
@@ -20,25 +19,10 @@ const App = () => {
       });
   }, []);
 
-  useEffect(() => {
-    axios
-      .get("https://covid19.mathdro.id/api/countries")
-      .then((response) => response.data)
-      .then((data) => {
-        console.log(data);
-        setCountries(data.countries);
-      });
-  }, []);
-
   return (
     <>
       <Topbar />
-      <Home
-        recovered={recovered}
-        confirmed={confirmed}
-        deaths={deaths}
-        countries={countries}
-      />
+      <Home recovered={recovered} confirmed={confirmed} deaths={deaths} />
     </>
   );
 };

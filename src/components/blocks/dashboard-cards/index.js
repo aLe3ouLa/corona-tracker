@@ -13,9 +13,10 @@ const Title = styled.h1`
   margin-bottom: ${({ theme }) => theme.spacing.sm};
 `;
 
-const DashboardCards = ({ confirmed, recovered, deaths, countries }) => {
+const DashboardCards = ({ confirmed, recovered, deaths }) => {
   const [selectedCountry, setSelectedCountry] = useState("Global");
   const [selectedCases, setSelectedCases] = useState({});
+  const [countries, setCountries] = useState([]);
   const countryOptions = countries.map((country, index) => {
     return <option key={index}>{country.name}</option>;
   });
@@ -31,6 +32,15 @@ const DashboardCards = ({ confirmed, recovered, deaths, countries }) => {
     }
   }, [selectedCountry]);
 
+  useEffect(() => {
+    axios
+      .get("https://covid19.mathdro.id/api/countries")
+      .then((response) => response.data)
+      .then((data) => {
+        setCountries(data.countries);
+      });
+  }, []);
+
   const getCountryData = (event) => {
     const value = event.target.value;
     setSelectedCountry(value);
@@ -40,7 +50,10 @@ const DashboardCards = ({ confirmed, recovered, deaths, countries }) => {
     <Wrapper>
       <Title>Corona update - {selectedCountry}</Title>
       <CardsContainer>
-        <select onChange={(e) => getCountryData(e)}>{countryOptions}</select>
+        <select onChange={(e) => getCountryData(e)}>
+          <option>Global</option>
+          {countryOptions}
+        </select>
         <DashboardCard
           label="Confirmed"
           number={
