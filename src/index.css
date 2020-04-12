@@ -1,13 +1,174 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.wrapper {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 100vw;
+  padding: 0 1em;
+}
+
+.map {
+  margin-top: 60px;
+  height: 50vh;
+}
+.map,
+.map .map-base {
+  width: 100%;
+  height: 100vh !important;
+  background: #eee;
+  /* position: relative; */
+  /* outline: none; */
+}
+.map-loading {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  color: #ddd;
+  width: 100%;
+  height: 4em;
+  line-height: 4em;
+  text-align: center;
+  margin: auto;
+}
+.map-marker[class*="shadow"] {
+  filter: blur(5px);
+  opacity: 0.7;
+}
+.icon-marker {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  width: 3.6em;
+  height: 3.6em;
+  font-size: 0.7em;
+  font-weight: bold;
+  background-color: #f00;
+  border-radius: 100%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.9);
+}
+.icon-marker:hover .icon-marker-tooltip {
+  display: block;
+}
+.icon-marker-tooltip {
+  display: none;
+  position: absolute;
+  bottom: 100%;
+  width: 16em;
+  font-size: 1.4em;
+  padding: 1em;
+  background-color: #e30;
+  border-radius: 0.4em;
+  margin-bottom: 1em;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.9);
+}
+.icon-marker-tooltip:before {
+  display: block;
+  position: absolute;
+  bottom: -0.6em;
+  left: 50%;
+  content: "";
+  width: 1.4em;
+  height: 1.4em;
+  background-color: #ddd;
+  transform: rotate(45deg);
+  margin-left: -0.7em;
+}
+.icon-marker-tooltip h2 {
+  font-size: 1.5em;
+  line-height: 1.2;
+  margin-bottom: 0.1em;
+  margin-top: 0;
+}
+.icon-marker-tooltip h3 {
+  font-size: 1.2em;
+  margin: 0.1em 0;
+  font-weight: normal;
+  color: #ccc;
+}
+.icon-marker-tooltip ul,
+.icon-marker-tooltip p {
+  font-weight: normal;
+}
+.icon-marker-tooltip ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.6em 0 0;
+}
+.icon-marker {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  width: 3.6em;
+  height: 3.6em;
+  font-size: 0.7em;
+  font-weight: bold;
+  background-color: #f00;
+  border-radius: 100%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.9);
+}
+.icon-marker:hover .icon-marker-tooltip {
+  display: block;
+}
+.icon-marker-tooltip {
+  display: none;
+  position: absolute;
+  bottom: 100%;
+  width: 16em;
+  font-size: 1.4em;
+  padding: 1em;
+  background-color: #aaa;
+  border-radius: 0.4em;
+  margin-bottom: 1em;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.9);
+}
+.icon-marker-tooltip:before {
+  display: block;
+  position: absolute;
+  bottom: -0.6em;
+  left: 50%;
+  content: "";
+  width: 1.4em;
+  height: 1.4em;
+  background-color: #ccc;
+  transform: rotate(45deg);
+  margin-left: -0.7em;
+}
+.icon-marker-tooltip h2 {
+  font-size: 1.5em;
+  line-height: 1.2;
+  margin-bottom: 0.1em;
+  margin-top: 0;
+}
+.icon-marker-tooltip h3 {
+  font-size: 1.2em;
+  margin: 0.1em 0;
+  font-weight: normal;
+  color: #ddd;
+}
+.icon-marker-tooltip ul,
+p {
+  font-weight: normal;
+}
+.icon-marker-tooltip ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.6em 0 0;
 }
